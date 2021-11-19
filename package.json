@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/AlySnyder/Team-Portfolio-Generator/issues"
   },
-  "homepage": "https://github.com/AlySnyder/Team-Portfolio-Generator#readme"
+  "homepage": "https://github.com/AlySnyder/Team-Portfolio-Generator#readme",
+  "dependencies": {
+    "inquirer": "^8.2.0"
+  }
 }
