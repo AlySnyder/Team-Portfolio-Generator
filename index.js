@@ -2,14 +2,6 @@ const inquirer = require('inquirer');
 const fs = require("fs");
 const path = require("path");
 
-const promptUser = () => {
-    return inquirer.prompt([{
-        type: 'input',
-        name: 'company'
-    }])
-}
-    
-
 class Employee {
 
     constructor(name, id, email) {
@@ -213,3 +205,235 @@ company.addIntern("Sally Long", "3", "sally@techrus.com", "MIT");
 
 console.log(company.getHtml());
 fs.writeFileSync(path.join(process.cwd(), "test.html"), company.getHtml());
+
+const promptUser = () => {
+    inquirer.prompt([{
+        type: 'input',
+        name: 'name',
+        message: 'What is your team managers name?',
+        validate: nameInput => {
+            if (nameInput) {
+                return true;
+            } else {
+                console.log("Please enter your team manager's name!");
+                return false;
+            }
+        }
+    },
+    {
+        type: 'input',
+        name: 'id',
+        message: "What is your team manager's user id?",
+        validate: nameInput => {
+            if (nameInput) {
+                return true;
+            } else {
+                console.log("Please enter your team manager's id!");
+                return false;
+            }
+        }
+    },
+
+    {
+        type: 'input',
+        name: 'email',
+        message: "What is your team manager's email address?",
+        validate: nameInput => {
+            if (nameInput) {
+                return true;
+            } else {
+                console.log("Please enter your team manager's email!");
+                return false;
+            }
+        }
+    },
+    {
+        type: 'input',
+        name: 'officeNumber',
+        message: "What is your team manager's office number?",
+        validate: nameInput => {
+            if (nameInput) {
+                return true;
+            } else {
+                console.log("Please enter your team manager's office number!");
+                return false;
+            }
+        }
+    },
+    ]).then(answers => {
+        console.log(answers);// company.add manager 
+        return teamMenu()
+
+    }).catch(err => {
+        console.error(err);
+    })
+};
+
+
+const promptEngineer = () => {
+    inquirer.prompt([{
+        type: 'input',
+        name: 'name',
+        message: "What is your Engineer's name?",
+        validate: nameInput => {
+            if (nameInput) {
+                return true;
+            } else {
+                console.log("Please enter your Engineer's name!");
+                return false;
+            }
+        }
+    },
+    {
+        type: 'input',
+        name: 'id',
+        message: "What is your Engineer's user id?",
+        validate: nameInput => {
+            if (nameInput) {
+                return true;
+            } else {
+                console.log("Please enter your Engineer's id!");
+                return false;
+            }
+        }
+    },
+
+    {
+        type: 'input',
+        name: 'email',
+        message: "What is your Engineer's email address?",
+        validate: nameInput => {
+            if (nameInput) {
+                return true;
+            } else {
+                console.log("Please enter your Engineer's email!");
+                return false;
+            }
+        }
+    },
+    {
+        type: 'input',
+        name: 'github',
+        message: "What is your Github username?",
+        validate: nameInput => {
+            if (nameInput) {
+                return true;
+            } else {
+                console.log("Please enter Github user name!");
+                return false;
+            }
+        }
+    },
+    ]).then(answers => {
+        console.log(answers);// company.add manager 
+        return teamMenu()
+
+    }).catch(err => {
+        console.error(err);
+    })
+};
+
+const promptIntern = () => {
+    inquirer.prompt([{
+        type: 'input',
+        name: 'name',
+        message: "What is your intern's name?",
+        validate: nameInput => {
+            if (nameInput) {
+                return true;
+            } else {
+                console.log("Please enter your intern's name!");
+                return false;
+            }
+        }
+    },
+    {
+        type: 'input',
+        name: 'id',
+        message: "What is your intern's user id?",
+        validate: nameInput => {
+            if (nameInput) {
+                return true;
+            } else {
+                console.log("Please enter your intern's id!");
+                return false;
+            }
+        }
+    },
+
+    {
+        type: 'input',
+        name: 'email',
+        message: "What is your intern's email address?",
+        validate: nameInput => {
+            if (nameInput) {
+                return true;
+            } else {
+                console.log("Please enter your intern's email address!");
+                return false;
+            }
+        }
+    },
+    {
+        type: 'input',
+        name: 'school',
+        message: "What school are you attending?",
+        validate: nameInput => {
+            if (nameInput) {
+                return true;
+            } else {
+                console.log("Please enter your school name");
+                return false;
+            }
+        }
+    },
+    ]).then(answers => {
+        console.log(answers);// company.add manager 
+        return teamMenu()
+
+    }).catch(err => {
+        console.error(err);
+    })
+};
+
+
+const teamMenu = () => {
+    inquirer.prompt([
+        {
+            type: 'list',
+            name: 'teamask',
+            message: 'Would you like to add another team member?',
+            choices: ['Engineer', 'Intern', 'Finish'],
+            //validate here
+        }
+    ]).then(answers => {
+        switch (answers.teamask) {
+            case "Engineer":
+                promptEngineer()
+                break;
+
+            case "Intern":
+                promptIntern()
+                break;
+            default:
+                console.log("The user selected, Finish")
+                break;
+        }
+
+        console.log(answers.teamask);
+    }).catch(err => {
+        console.error(err);
+    })
+}
+
+
+
+// save manager info then run ask for new member function 
+
+
+
+promptUser()
+    // .then(promptNew)
+    // .then(portfolioData => {
+    //     console.log(portfolioData);
+    // });
