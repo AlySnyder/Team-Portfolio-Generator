@@ -199,12 +199,9 @@ class Company {
 
 const company = new Company("Tech r us");
 
-company.addManager("Mike Smith", "1", "mike@techrus.com", "564");
-company.addEngineer("Jane Doe", "2", "jane@techrus.com", "janedoe");
-company.addIntern("Sally Long", "3", "sally@techrus.com", "MIT");
-
-console.log(company.getHtml());
-fs.writeFileSync(path.join(process.cwd(), "test.html"), company.getHtml());
+// company.addManager("Mike Smith", "1", "mike@techrus.com", "564");
+// company.addEngineer("Jane Doe", "2", "jane@techrus.com", "janedoe");
+// company.addIntern("Sally Long", "3", "sally@techrus.com", "MIT");
 
 const promptUser = () => {
     inquirer.prompt([{
@@ -261,7 +258,7 @@ const promptUser = () => {
         }
     },
     ]).then(answers => {
-        console.log(answers);// company.add manager 
+        company.addManager(answers.name, answers.id, answers.email, answers.officeNumber);
         return teamMenu()
 
     }).catch(err => {
@@ -325,7 +322,7 @@ const promptEngineer = () => {
         }
     },
     ]).then(answers => {
-        console.log(answers);// company.add manager 
+        company.addEngineer(answers.name, answers.id, answers.email, answers.github);
         return teamMenu()
 
     }).catch(err => {
@@ -388,7 +385,7 @@ const promptIntern = () => {
         }
     },
     ]).then(answers => {
-        console.log(answers);// company.add manager 
+        company.addIntern(answers.name, answers.id, answers.email, answers.school);
         return teamMenu()
 
     }).catch(err => {
@@ -416,7 +413,7 @@ const teamMenu = () => {
                 promptIntern()
                 break;
             default:
-                console.log("The user selected, Finish")
+                fs.writeFileSync(path.join(process.cwd(), "test.html"), company.getHtml());
                 break;
         }
 
