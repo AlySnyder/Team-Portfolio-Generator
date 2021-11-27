@@ -67,7 +67,7 @@ class Engineer extends Employee {
            <ul class="list-group">
                <li class="list-group-item">ID: ${this.id}</li>
                <li class="list-group-item">Email: <a href="mailto:${this.email}">${this.email}</a></li>
-               <li class="list-group-item">Github: ${this.github}</li>
+               <li class="list-group-item">Github: <a href="https://github.com/${this.github}" target="_blank">${this.github}</a></li>
            </ul>
        </div>
        </div>
@@ -107,7 +107,6 @@ class Intern extends Employee {
 }
 
 function generateTeamCards(team) {
-    //go through team array for each item call get my card function, console log test
     let cards = ""
 
     for (employee of team) {
@@ -193,15 +192,10 @@ class Company {
         </body>
         </html>
         `;
-        // write function called generateTeamCards - team = array (manager, intern, engineer objects) call get my card , also work on style
     }
 }
 
 const company = new Company("Tech r us");
-
-// company.addManager("Mike Smith", "1", "mike@techrus.com", "564");
-// company.addEngineer("Jane Doe", "2", "jane@techrus.com", "janedoe");
-// company.addIntern("Sally Long", "3", "sally@techrus.com", "MIT");
 
 const promptUser = () => {
     inquirer.prompt([{
@@ -417,20 +411,11 @@ const teamMenu = () => {
                 break;
         }
 
-        console.log(answers.teamask);
+        // console.log(answers.teamask);
     }).catch(err => {
         console.error(err);
     })
 }
 
 
-
-// save manager info then run ask for new member function 
-
-
-
 promptUser()
-    // .then(promptNew)
-    // .then(portfolioData => {
-    //     console.log(portfolioData);
-    // });
