@@ -10,9 +10,6 @@ class Employee {
         this.email = email;
     }
 
-    getHtml() {
-        return `<h1> Hi there my name is ${this.name}<h1>`;
-    }
 }
 
 class Manager extends Employee {
@@ -21,16 +18,12 @@ class Manager extends Employee {
         this.officeNumber = officeNumber;
     }
 
-    getHtml() {
-        return `<h1>Hi there my name is ${this.name}, and I am a manager. My office number is ${this.officeNumber}`;
-    }
-
     getMyCard() {
         return `
         <div class="card employee-card">
         <div class="card-header">
             <h2 class="card-title">${this.name}</h2>
-            <h3 class="card-title"><i class="fas fa-mug-hot mr-2"></i>Manager</h3>
+            <h3 class="card-title"><i class="fas fa-building mr-2"></i>Manager</h3>
         </div>
         <div class="card-body">
             <ul class="list-group">
@@ -52,16 +45,12 @@ class Engineer extends Employee {
         this.github = github
     }
 
-    getHtml() {
-        return `<h1>Hi there my name is ${this.name}, and I am an Engineer. My Github profile is ${this.github}`;
-    }
-
     getMyCard() {
         return `
        <div class="card employee-card">
        <div class="card-header">
            <h2 class="card-title">${this.name}</h2>
-           <h3 class="card-title"><i class="fas fa-mug-hot mr-2"></i>Engineer</h3>
+           <h3 class="card-title"><i class="fas fa-clipboard-check mr-2"></i>Engineer</h3>
        </div>
        <div class="card-body">
            <ul class="list-group">
@@ -81,17 +70,12 @@ class Intern extends Employee {
         super(name, id, email);
         this.school = school;
     }
-
-    getHtml() {
-        return `<h1>Hi there my name is ${this.name}, and I am an Intern. I am a student at ${this.school}`;
-    }
-    // need to style card classes
     getMyCard() {
         return `
        <div class="card employee-card">
        <div class="card-header">
            <h2 class="card-title">${this.name}</h2>
-           <h3 class="card-title"><i class="fas fa-mug-hot mr-2"></i>Intern</h3>
+           <h3 class="card-title"><i class="fas fa-book mr-2"></i>Intern</h3>
        </div>
        <div class="card-body">
            <ul class="list-group">
@@ -156,8 +140,6 @@ class Company {
 
     getHtml() {
         let teamCards = generateTeamCards(this.team)
-
-        // here we must do a template closer to the example, need to prompt the employees to fill out their information. 
         return `
         <!DOCTYPE html>
         <html lang="en">
@@ -169,7 +151,7 @@ class Company {
             <title>Company Roster 2021</title>
             <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
                 integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-            <link rel="stylesheet" href="style.css"> 
+            <link rel="stylesheet" href="./dist/style.css"> 
             <script src="https://kit.fontawesome.com/c502137733.js"></script>
         </head>
 
@@ -177,7 +159,7 @@ class Company {
 
         <div class="container-fluid">
                 <div class="row">
-                    <div class="col-12 jumbotron mb-3 team-heading">
+                    <div class="col-12 jumbotron bg-red mb-3 team-heading">
                         <h1 class="text-center">My Team Roster</h1>
                     </div>
                 </div>
