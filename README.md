@@ -16,15 +16,15 @@ Creates a team profile using node.js and node packages.
 * [Questions](#questions)
 
 ## Installation
-Clone my repo to your local machine, then install npm init in your terminal to run the app
+Clone my repo to your local machine, and install npm init in your terminal. Then use "index node.js" to run the app.
 
 ## Usage
 
-[Walkthrough Video](https://raw.githubusercontent.com/AlySnyder/readme-generator/main/Walkthrough.mov)
+[Walkthrough Video](https://github.com/AlySnyder/Team-Portfolio-Generator/raw/main/team-profile-generator.mov)
 
 ## Tests
 
-You can run npm test from your terminal to run tests for conductors. 
+You can type "run npm test" from your terminal to run tests for conductors. 
 
 ## License
 
